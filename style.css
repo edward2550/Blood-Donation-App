@@ -11,20 +11,21 @@ img{
 }
 
 .nav-bar ul{
-    background-color: red;
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-evenly;
     align-content:flex-start;
 }
 
 .nav-bar p{
+    border: solid black 1px;
     padding: 50px;
-    width: 50%;
-    height: 100px;
+    width: 18%;
+   background-color: maroon;
     text-align: center;
     color: white;
     font-size: 20px;
+    border-radius: 50%;
 }
 
 a:hover { text-decoration: none; color:yellow; }
