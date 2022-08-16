@@ -1,21 +1,18 @@
 let map;
 let service;
 let infowindow;
-
 var locationForm = document.getElementById('location-form');
-
 locationForm.addEventListener('submit',geocode)
 
 
 function geocode(e){
     //prevent actual submit
     e.preventDefault();
-
     var location = document.getElementById('location-input').value;
     axios.get('https://maps.googleapis.com/maps/api/geocode/json?', {
         params:{
             address:location,
-            key:'AIzaSyDri_ocaq6Gbsjd7jbcSldou9hX84L6Cyc'
+            key: 'AIzaSyDri_ocaq6Gbsjd7jbcSldou9hX84L6Cyc'
         }
     })
     .then(function(response){
@@ -54,8 +51,9 @@ function initMap() {
       map,
       position: place.geometry.location,
     });
-  
-    google.maps.event.addListener(marker, "click", () => {
+
+
+    google.maps.event.addListener(marker, "mouseover", () => {
       infowindow.setContent(place.name || "");
       infowindow.open(map);
     });
@@ -71,10 +69,11 @@ function initMap() {
   
     var request = {
       location: location,
-      radius: '1000',
-      type: ['hospital']
+      radius: '10000',
+      type: "hospital"
       //add fields maybe 
     };
+    console.log(request)
   
     service = new google.maps.places.PlacesService(map);
     service.nearbySearch(request, function(results, status) {
